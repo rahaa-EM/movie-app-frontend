@@ -7,14 +7,13 @@ A modern movie browser built with **React**, **TypeScript**, and **Chakra UI v3*
 - React
 - TypeScript
 - Chakra UI v3
-- Fetch API
 - React Hooks
 
 ## Setup Instructions
 
 1. **Clone the repo**
     ```bash
-    git clone https://github.com/rahaa-EM/movie-app.git
+    git clone https://github.com/rahaa-EM/movie-app-frontend.git
     cd movie-app
 2. **Install dev dependencies**
     ```bash
