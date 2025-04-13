@@ -6,7 +6,7 @@ const theme = extendTheme({
   colors: {
     brand: {
       50: "#ffe5e7",
-      100: "#fbb8bc",
+      100: "#5D737E",
       200: "#f28a8f",
       300: "#e85d61",
       400: "#df2f34",
@@ -29,6 +29,28 @@ const theme = extendTheme({
       body: {
         bg: "#141414",
         color: "white",
+      },
+    },
+  },
+  components: {
+    Button: {
+      variants: {
+        mainButton: {
+          bg: "brand.500",
+          color: "brand.50",
+          _hover: {
+            bg: "brand.600",
+          },
+        },
+        navButton: {
+          alignItems: "center",
+          justifyContent: "center",
+          bg: "background.main",
+          color: "brand.50",
+          _hover: {
+            bg: "brand.600",
+          },
+        },
       },
     },
   },

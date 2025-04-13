@@ -6,7 +6,7 @@ A modern movie browser built with **React**, **TypeScript**, and **Chakra UI v3*
 ## Tech Stack
 - React
 - TypeScript
-- Chakra UI v3
+- Chakra UI v2.8.0
 - React Hooks
 - Keen Carousel slider
 

@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
-import { Box, Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Spinner,
+  Stack,
+} from "@chakra-ui/react";
 import { Movie } from "../types/types";
 import { fetchPopularMovies } from "../api/movies";
 import { MovieCarousel3D } from "../components/MovieCarousel3D";
+import OpeningTitle from "../components/OpeningTitle";
+import Header from "../components/Header/Header";
 
 export const Home = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -15,10 +21,28 @@ export const Home = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  return (
-    <Box p={6}>
-      <Heading mb={6}>Popular Movies</Heading>
-      {loading ? <Spinner size="xl" /> : <MovieCarousel3D movies={movies} />}
-    </Box>
+  return loading ? (
+    <Spinner size="xl" />
+  ) : (
+    <>
+      <Header />
+      <Stack
+        h="80vh"
+        spacing={4}
+        direction={{ base: "column", md: "row" }}
+        p="10"
+      >
+        <OpeningTitle />
+        <Box
+          flex="1"
+          display="flex"
+          alignItems="center"
+          justifyContent="flex-end"
+          m={["50px", "100px", "150px", "200px"]}
+        >
+          <MovieCarousel3D movies={movies} />
+        </Box>
+      </Stack>
+    </>
   );
 };
