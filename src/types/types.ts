@@ -1,4 +1,4 @@
-export interface Movie {
+export type Movie = {
   id: number;
   title: string;
   overview: string;
@@ -6,5 +6,7 @@ export interface Movie {
   backdrop_path: string;
   original_language: string;
   vote_average: number;
-  release_date: string;
-}
+  release_date?: string;
+  first_air_date?: string;
+};
+export type SearchType = "movie" | "tv" | "multi";

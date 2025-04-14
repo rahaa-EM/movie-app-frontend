@@ -24,7 +24,7 @@ const carousel: KeenSliderPlugin = (slider) => {
   slider.on("detailsChanged", rotate);
 };
 
-export const MovieCarousel3D = ({ movies }: Props) => {
+export const MovieCarousel3D = (props: Props) => {
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -39,7 +39,7 @@ export const MovieCarousel3D = ({ movies }: Props) => {
     <Box className="wrapper">
       <Box className="scene">
         <Box className="carousel keen-slider" ref={sliderRef}>
-          {movies.map((movie) => (
+          {props.movies.map((movie) => (
             <Box className="carousel__cell" key={movie.id}>
               <Image
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}

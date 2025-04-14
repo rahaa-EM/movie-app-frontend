@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Box,
-  Spinner,
-  Stack,
-} from "@chakra-ui/react";
+import { Box, Spinner, Stack } from "@chakra-ui/react";
 import { Movie } from "../types/types";
 import { fetchPopularMovies } from "../api/api";
 import { MovieCarousel3D } from "../components/MovieCarousel3D";
@@ -21,7 +17,7 @@ const Home = () => {
   }, []);
 
   return loading ? (
-    <Spinner size="xl" />
+    <Spinner size="md" />
   ) : (
     <>
       <Stack

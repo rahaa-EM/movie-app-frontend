@@ -5,7 +5,6 @@ import {
   IconButton,
   useDisclosure,
   Stack,
-  Text,
   Button,
 } from "@chakra-ui/react";
 import { LuMenu, LuX } from "react-icons/lu";
@@ -58,10 +57,18 @@ const Navbar = () => {
               <Profile />
               Segun Adebayo
             </Button>
-            <Button variant="navButton">Home</Button>
-            <Button variant="navButton">Movies</Button>
-            <Button variant="navButton">TV Shows</Button>
-            <Button variant="navButton">Search</Button>
+            <Button variant="navButton" as={RouterLink} to="/">
+              Home
+            </Button>
+            <Button variant="navButton" as={RouterLink} to="/movies">
+              Movies
+            </Button>
+            <Button variant="navButton" as={RouterLink} to="/tv-shows">
+              TV Shows
+            </Button>
+            <Button variant="navButton" as={RouterLink} to="/search">
+              Search
+            </Button>
           </Stack>
         </Box>
       )}

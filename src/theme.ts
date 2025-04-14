@@ -47,26 +47,26 @@ const theme = extendTheme({
         size: "h1",
       },
     },
-      Button: {
-        variants: {
-          mainButton: {
-            bg: "brand.500",
-            color: "brand.50",
-            _hover: {
-              bg: "brand.600",
-            },
+    Button: {
+      variants: {
+        mainButton: {
+          bg: "brand.500",
+          color: "brand.50",
+          _hover: {
+            bg: "brand.600",
           },
-          navButton: {
-            alignItems: "center",
-            justifyContent: "center",
-            bg: "background.main",
-            color: "brand.50",
-            _hover: {
-              bg: "brand.600",
-            },
+        },
+        navButton: {
+          alignItems: "center",
+          justifyContent: "center",
+          bg: "background.main",
+          color: "brand.50",
+          _hover: {
+            bg: "brand.600",
           },
         },
       },
+    },
   },
 });
 

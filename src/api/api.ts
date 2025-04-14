@@ -1,4 +1,4 @@
-import { Movie } from "../types/types";
+import { Movie, SearchType } from "../types/types";
 /**
  * get popular movies
  */
@@ -11,19 +11,30 @@ const fetchPopularMovies = async (): Promise<Movie[]> => {
 /**
  * Search
  */
-const searchMovies = async (query: string): Promise<Movie[]> => {
-  const res = await fetch(`${BASE_URL}/search?q=${encodeURIComponent(query)}`);
+const searchMovies = async (
+  query: string,
+  type: SearchType
+): Promise<Movie[]> => {
+  const res = await fetch(
+    `${BASE_URL}/search?q=${encodeURIComponent(query)}&type=${type}`
+  );
   if (!res.ok) throw new Error("Failed to search movies");
   const data = await res.json();
   return data.results;
 };
 
+/**
+ * TV Shows
+ */
 const fetchTVShows = async (): Promise<Movie[]> => {
   const res = await fetch(`${BASE_URL}/tv-shows`);
   if (!res.ok) throw new Error("Failed to fetch TV shows");
   return res.json();
 };
 
+/**
+ * Movies
+ */
 const fetchMovies = async (): Promise<Movie[]> => {
   const res = await fetch(`${BASE_URL}/movies`);
   if (!res.ok) throw new Error("Failed to fetch Movies");

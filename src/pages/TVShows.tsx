@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchTVShows } from "../api/api";
 import { Movie } from "../types/types";
 import MovieCard from "../components/MovieCard";
-import { Spinner } from "@chakra-ui/react";
+import { Spinner, Box, Flex } from "@chakra-ui/react";
 const TVShows = () => {
   const [tvShows, setTVShows] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
@@ -13,13 +13,18 @@ const TVShows = () => {
       .finally(() => setLoading(false));
   }, []);
   return loading ? (
-    <Spinner size="xl" />
+    <Spinner size="md" />
   ) : (
-    <>
+    <Flex wrap="wrap" gap="10px">
       {tvShows.map((tvShow) => (
-        <MovieCard movie={tvShow} key={tvShow.title} />
+        <Box
+          key={tvShow.id}
+          flexBasis={{ base: "100%", md: "100%", lg: "calc(50% - 50px)" }}
+        >
+          <MovieCard movie={tvShow} key={tvShow.title} />
+        </Box>
       ))}
-    </>
+    </Flex>
   );
 };
 
