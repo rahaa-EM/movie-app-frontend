@@ -34,7 +34,6 @@ A modern movie browser built with **React**, **TypeScript**, and **Chakra UI**.
     ```bash
     git clone https://github.com/rahaa-EM/movie-app-backend.git
 5. **Run the backend server**
-    ```bash
     Make sure you have the server running at a same port in the .env base URL(Deafult 3000)
 6. **Run the app**
     ```bash
