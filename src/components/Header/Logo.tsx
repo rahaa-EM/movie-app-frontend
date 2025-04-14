@@ -5,7 +5,9 @@ const Logo = () => (
   <Image
     src={logo}
     alt="Logo"
+    width={{ base: "100px", md: "150px" }}
     objectFit="contain"
+    mt={{ base: "10px", md: "20px" }}
   />
 );
 

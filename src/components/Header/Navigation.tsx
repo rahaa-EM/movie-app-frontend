@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { LuMenu, LuX } from "react-icons/lu";
 import Profile from "./Profile";
+import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -29,15 +30,23 @@ const Navbar = () => {
         />
 
         {/* Desktop Nav */}
-        <HStack alignItems="center" display={{ base: "none", md: "flex" }}>
-          <Button variant="navButton">
+        <HStack display={{ base: "none", md: "flex" }}>
+          <Button as={RouterLink} to="/account" variant="navButton">
             <Profile />
             Hi Segun Adebayo!
           </Button>
-          <Button variant="navButton">Home</Button>
-          <Button variant="navButton">Movies</Button>
-          <Button variant="navButton">TV Shows</Button>
-          <Button variant="navButton">Search</Button>
+          <Button as={RouterLink} to="/" variant="navButton">
+            Home
+          </Button>
+          <Button as={RouterLink} to="/movies" variant="navButton">
+            Movies
+          </Button>
+          <Button as={RouterLink} to="/tv-shows" variant="navButton">
+            TV Shows
+          </Button>
+          <Button as={RouterLink} to="/search" variant="navButton">
+            Search
+          </Button>
         </HStack>
       </Flex>
 
