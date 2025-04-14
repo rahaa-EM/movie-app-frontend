@@ -29,7 +29,7 @@ A modern movie browser built with **React**, **TypeScript**, and **Chakra UI**.
 3. **Create .env file**
     ```bash
     PORT=any port other than 3000
-    BASE_URL=http://localhost:SERVER_PORT/api
+    REACT_APP_API_BASE_URL=http://localhost:<SERVER_PORT>/api
 4. **Clone backend**
     ```bash
     git clone https://github.com/rahaa-EM/movie-app-backend.git
