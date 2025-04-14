@@ -33,26 +33,40 @@ const theme = extendTheme({
     },
   },
   components: {
-    Button: {
-      variants: {
-        mainButton: {
-          bg: "brand.500",
-          color: "brand.50",
-          _hover: {
-            bg: "brand.600",
-          },
+    Heading: {
+      baseStyle: {
+        fontWeight: "bold",
+        color: "brand.600",
+      },
+      sizes: {
+        h1: {
+          fontSize: { base: "3xl", md: "4xl", lg: "5xl" },
         },
-        navButton: {
-          alignItems: "center",
-          justifyContent: "center",
-          bg: "background.main",
-          color: "brand.50",
-          _hover: {
-            bg: "brand.600",
+      },
+      defaultProps: {
+        size: "h1",
+      },
+    },
+      Button: {
+        variants: {
+          mainButton: {
+            bg: "brand.500",
+            color: "brand.50",
+            _hover: {
+              bg: "brand.600",
+            },
+          },
+          navButton: {
+            alignItems: "center",
+            justifyContent: "center",
+            bg: "background.main",
+            color: "brand.50",
+            _hover: {
+              bg: "brand.600",
+            },
           },
         },
       },
-    },
   },
 });
 
