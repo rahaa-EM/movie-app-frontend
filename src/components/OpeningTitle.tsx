@@ -8,16 +8,10 @@ const OpeningTitle = () => {
         fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
         color="brand.600"
         fontWeight="bold"
+        bgGradient="linear(to-r, brand.500, brand.900)"
+        bgClip="text"
       >
-        Latest Movies
-      </Heading>
-      <Heading
-        as="h1"
-        fontSize={{ base: "2xl", md: "3xl", lg: "5xl" }}
-        color="brand.100"
-        fontWeight="bold"
-      >
-        at a Glance
+        Latest Movies at a Glance
       </Heading>
       <Text>
         Discover the latest movies, read ratings and descriptions, and find

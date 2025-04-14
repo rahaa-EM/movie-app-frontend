@@ -11,6 +11,7 @@ const Search = () => {
   const [results, setResults] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+
   const handleSearch = async () => {
     setLoading(true);
     try {
@@ -23,7 +24,7 @@ const Search = () => {
     }
   };
   return loading ? (
-    <Spinner size="xl" />
+    <Spinner size="md" />
   ) : (
     <>
       <Heading as="h1">Stories live behind the titles.</Heading>

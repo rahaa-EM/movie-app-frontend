@@ -16,6 +16,11 @@ const MovieCard = (props: Props) => {
     showFullText || !isLongText
       ? props.movie.overview
       : props.movie.overview.substring(0, MAX_CHAR) + "...";
+  const title = props.movie.title ? props.movie.title : props.movie.name;
+  const releaseDate = props.movie.release_date
+    ? props.movie.release_date
+    : props.movie.first_air_date;
+
   return (
     <HStack mb="30px">
       <Image
@@ -29,18 +34,16 @@ const MovieCard = (props: Props) => {
       <Flex direction="column" justify="space-between" align="left" h="300px">
         {showFullText ? (
           <Text fontSize="lg" color="brand.600">
-            {props.movie.title}
+            {title}
           </Text>
         ) : (
-          <Heading as="h1">{props.movie.title}</Heading>
+          <Heading as="h1">{title}</Heading>
         )}
         <HStack justify="space-between">
           <HStack>
             <LuCalendar color="brand.50" />
             <Text fontSize="sm" color="brand.50">
-              {props.movie.release_date
-                ? props.movie.release_date
-                : props.movie.first_air_date}
+              {releaseDate}
             </Text>
           </HStack>
           <HStack>

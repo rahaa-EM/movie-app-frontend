@@ -12,6 +12,7 @@ const Header = () => {
       position="sticky"
       zIndex="sticky"
       top={0}
+      bg="background.main"
     >
       <Navigation />
       <Logo />

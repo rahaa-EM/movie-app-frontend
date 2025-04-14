@@ -38,10 +38,10 @@ const Navbar = () => {
             Home
           </Button>
           <Button as={RouterLink} to="/movies" variant="navButton">
-            Movies
+            Top Movies
           </Button>
           <Button as={RouterLink} to="/tv-shows" variant="navButton">
-            TV Shows
+            Top TV Shows
           </Button>
           <Button as={RouterLink} to="/search" variant="navButton">
             Search
@@ -61,10 +61,10 @@ const Navbar = () => {
               Home
             </Button>
             <Button variant="navButton" as={RouterLink} to="/movies">
-              Movies
+              Top Movies
             </Button>
             <Button variant="navButton" as={RouterLink} to="/tv-shows">
-              TV Shows
+              Top TV Shows
             </Button>
             <Button variant="navButton" as={RouterLink} to="/search">
               Search
