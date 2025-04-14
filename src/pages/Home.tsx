@@ -5,12 +5,11 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { Movie } from "../types/types";
-import { fetchPopularMovies } from "../api/movies";
+import { fetchPopularMovies } from "../api/api";
 import { MovieCarousel3D } from "../components/MovieCarousel3D";
 import OpeningTitle from "../components/OpeningTitle";
-import Header from "../components/Header/Header";
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +24,6 @@ export const Home = () => {
     <Spinner size="xl" />
   ) : (
     <>
-      <Header />
       <Stack
         h="80vh"
         spacing={4}
@@ -46,3 +44,4 @@ export const Home = () => {
     </>
   );
 };
+export default Home;

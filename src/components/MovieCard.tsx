@@ -1,26 +1,49 @@
-// src/components/MovieCard.tsx
-import { Box, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Image, Text, VStack, HStack } from "@chakra-ui/react";
 import { Movie } from "../types/types";
+import { Heading } from "@chakra-ui/react";
+import { LuGlobe, LuCalendar, LuStar } from "react-icons/lu";
+import { Icon } from "@chakra-ui/react";
 
 type Props = {
   movie: Movie;
 };
 
-export const MovieCard = ({ movie }: Props) => {
-  const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+const MovieCard = ({ movie }: Props) => {
 
   return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={3}>
-      <Image src={posterUrl} alt={movie.title} borderRadius="md" />
-      <VStack align="start" mt={3}>
-        <Text fontWeight="bold">{movie.title}</Text>
-        <Text fontSize="sm" color="gray.500">
-          {movie.release_date}
-        </Text>
-        <Text fontSize="sm">
-          {movie.overview}
-        </Text>
+    <HStack border="none" borderRadius="20px" mb={6}>
+      <Image
+        alt={movie.title}
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        objectFit="cover"
+        height="300px"
+        width="150px"
+      />
+      <VStack align="start">
+        <Heading as="h1">{movie.title}</Heading>
+        <HStack justify="space-between" width="50%">
+          <HStack>
+            <LuCalendar color="brand.50" />
+            <Text fontSize="sm" color="brand.50">
+             {movie.release_date}
+            </Text>
+          </HStack>
+           <HStack>
+            <LuStar color="brand.50" />
+          <Text fontSize="sm" color="brand.50">
+           {movie.vote_average.toFixed(1)}
+            </Text>
+          </HStack>
+          <HStack>
+            <LuGlobe color="brand.50" />
+          <Text fontSize="sm" color="brand.50">
+            {movie.original_language.toUpperCase()}
+            </Text>
+            </HStack>
+        </HStack>
+        <Text fontSize="sm">{movie.overview}</Text>
       </VStack>
-    </Box>
+    </HStack>
   );
 };
+export default MovieCard;
