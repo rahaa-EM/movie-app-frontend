@@ -10,12 +10,15 @@ type Props = {
 const MovieCard = (props: Props) => {
   const [showFullText, setShowFullText] = useState(false);
   const toggleReadMore = () => setShowFullText(!showFullText);
-  const MAX_CHAR = 100;
-  const isLongText = props.movie.overview.length > MAX_CHAR;
+  // The overview is a long text and we want to show only the first 100 characters
+  const maxCharactar = 100;
+  const isLongText = props.movie.overview.length > maxCharactar;
   const displayedText =
     showFullText || !isLongText
       ? props.movie.overview
-      : props.movie.overview.substring(0, MAX_CHAR) + "...";
+      : props.movie.overview.substring(0, maxCharactar) + "...";
+  
+  // The Movies come with the release_date and title while TV shows come with the first_air_date and name
   const title = props.movie.title ? props.movie.title : props.movie.name;
   const releaseDate = props.movie.release_date
     ? props.movie.release_date

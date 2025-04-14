@@ -40,6 +40,7 @@ const Home = () => {
           justifyContent="flex-end"
           m={["50px", "100px", "150px", "200px"]}
         >
+          {/* The 3D Movie Carousle is from Keen Slider for more info visit (https://keen-slider.io/examples) */}
           <MovieCarousel3D movies={carouselMovies} />
         </Box>
       </Stack>
