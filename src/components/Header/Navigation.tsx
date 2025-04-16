@@ -7,15 +7,48 @@ import {
   Stack,
   Button,
 } from "@chakra-ui/react";
+import { useRef, useEffect } from "react";
 import { LuMenu, LuX } from "react-icons/lu";
 import Profile from "./Profile";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+export function useClickAnyWhere (event: (event: MouseEvent) => void, ref: React.RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        event(e);
+      }
+    }
+    document.addEventListener("click", handleClick, true);
+    return () => {
+      document.removeEventListener("click", handleClick, true);
+    }
+  }, [event, ref]
+  )
+}
+export function useClickOutSide(event: (event: MouseEvent) => void, ref: React.RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+         event(e);
+       }
+    };
+    document.addEventListener('click', handleClick)
+    return () => document.addEventListener("click", handleClick)
+  },[event, ref])
+}
+
+   const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const currentPath = useLocation().pathname;
+  const isActive = (path: string) => path === currentPath;
+  const navRef = useRef<HTMLDivElement>(null);
 
+    useClickAnyWhere(() => {
+      if (isOpen) onClose();
+    }, navRef);
   return (
-    <Box bg="main" shadow="md">
+    <Box bg="main" shadow="md" ref={navRef}>
       <Flex alignItems="center" justifyContent="space-between">
         {/* Mobile Hamburger */}
         <IconButton
@@ -30,20 +63,110 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <HStack display={{ base: "none", md: "flex" }}>
-          <Button as={RouterLink} to="/account" variant="navButton">
+          <Button
+            as={RouterLink}
+            to="/account"
+            _after={
+              isActive("/account")
+                ? {
+                    content: '""',
+                    position: "absolute",
+                    bottom: "0",
+                    left: 0,
+                    width: "100%",
+                    height: "4px",
+                    bg: "brand.600",
+                    borderRadius: 0,
+                  }
+                : {}
+            }
+            variant="navButton"
+          >
             <Profile />
             Hi Segun Adebayo!
           </Button>
-          <Button as={RouterLink} to="/" variant="navButton">
+          <Button
+            as={RouterLink}
+            to="/"
+            _after={
+              isActive("/")
+                ? {
+                    content: '""',
+                    position: "absolute",
+                    bottom: "0",
+                    left: 0,
+                    width: "100%",
+                    height: "4px",
+                    bg: "brand.600",
+                    borderRadius: 0,
+                  }
+                : {}
+            }
+            variant="navButton"
+          >
             Home
           </Button>
-          <Button as={RouterLink} to="/movies" variant="navButton">
+          <Button
+            as={RouterLink}
+            to="/movies"
+            _after={
+              isActive("/movies")
+                ? {
+                    content: '""',
+                    position: "absolute",
+                    bottom: "0",
+                    left: 0,
+                    width: "100%",
+                    height: "4px",
+                    bg: "brand.600",
+                    borderRadius: 0,
+                  }
+                : {}
+            }
+            variant="navButton"
+          >
             Top Movies
           </Button>
-          <Button as={RouterLink} to="/tv-shows" variant="navButton">
+          <Button
+            as={RouterLink}
+            to="/tv-shows"
+            _after={
+              isActive("/tv-shows")
+                ? {
+                    content: '""',
+                    position: "absolute",
+                    bottom: "0",
+                    left: 0,
+                    width: "100%",
+                    height: "4px",
+                    bg: "brand.600",
+                    borderRadius: 0,
+                  }
+                : {}
+            }
+            variant="navButton"
+          >
             Top TV Shows
           </Button>
-          <Button as={RouterLink} to="/search" variant="navButton">
+          <Button
+            as={RouterLink}
+            to="/search"
+            _after={
+              isActive("/search")
+                ? {
+                    content: '""',
+                    position: "absolute",
+                    bottom: "0",
+                    left: 0,
+                    width: "100%",
+                    height: "4px",
+                    bg: "brand.600",
+                    borderRadius: 0,
+                  }
+                : {}
+            }
+            variant="navButton"
+          >
             Search
           </Button>
         </HStack>
